@@ -27,7 +27,7 @@ class StoreSongRequest extends FormRequest
             'name' => 'required',
             'duration'  => 'required',
             'lyrics'  => 'required',
-            'music' => 'required|file|max:100000|min:100|mimes:mp3',
+            'music' => 'required|file|max:100000|min:100',
         ];
     }
 }

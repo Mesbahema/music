@@ -32,15 +32,18 @@ class SongController extends Controller
      */
     public function store(StoreSongRequest $request)
     {
-        $path = $request->file('music')->store('public/songs');
+        $file_path = $request->file('music')->store('public/songs');
         $song = new Song();
-        $file = File::created($path);
+        $file = new File();
+        $file->file_path = $file_path;
+        $file->save();
         $translations = $request->name;
-
+        //$fileId = File::lates()->first();
         $song->setTranslations('name', $translations);
         $song->fill($request->except('file'));
         $song->album()->associate($request->album_id);
         $song->save();
+        $song->files()->attach($file->id);
         return [
             'success' => true,
             'message' => __('responses.Music.Artist.store', ['name' => $song->name]),
