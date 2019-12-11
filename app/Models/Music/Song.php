@@ -3,6 +3,7 @@
 namespace App\Models\Music;
 
 use App\Models\Like\Like;
+use App\Models\Like\Playlist;
 use App\Models\Music\Album;
 use App\Models\Like\Comment;
 use App\Models\Like\History;
@@ -19,12 +20,12 @@ use Spatie\Translatable\HasTranslations;
  * @property string $lyrics
  * @property string $duration
  *
- * @property Genres[]    $genres
+ * @property Genre[]    $genres
  * @property Musicvideo  $musicvideo
  * @property Category[]  $categories
- * @property Artists[]   $artist
- * @property Likes[]     $likes
- * @property Playlists[] $playlists
+ * @property Artist[]   $artist
+ * @property Like[]     $likes
+ * @property Playlist[] $playlists
  * @property History[]   $histories
  * @property Album       $albums
  * @property Comment     $comments
@@ -33,6 +34,9 @@ use Spatie\Translatable\HasTranslations;
 
 class Song extends Model
 {
+    protected $fillable = [
+        'name', 'file_path', 'lyrics', 'duration',
+    ];
     /*-----------------------------Translations-----------------------*/
     use HasTranslations;
     public $translatable = ['name'];
