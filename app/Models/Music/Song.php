@@ -16,26 +16,26 @@ use Spatie\Translatable\HasTranslations;
  * @package App\Models\Music
  *
  * @property string $name
- * @property string $file_path
  * @property string $lyrics
  * @property string $duration
  *
- * @property Genre[]    $genres
+ * @property Genre[]     $genres
  * @property Musicvideo  $musicvideo
  * @property Category[]  $categories
- * @property Artist[]   $artist
- * @property Like[]     $likes
- * @property Playlist[] $playlists
+ * @property Artist[]    $artist
+ * @property Like[]      $likes
+ * @property Playlist[]  $playlists
  * @property History[]   $histories
  * @property Album       $albums
  * @property Comment     $comments
+ * @property File[]      $files
  *
  */
 
 class Song extends Model
 {
     protected $fillable = [
-        'name', 'file_path', 'lyrics', 'duration',
+        'name', 'lyrics', 'duration',
     ];
     /*-----------------------------Translations-----------------------*/
     use HasTranslations;
@@ -90,5 +90,10 @@ class Song extends Model
     public function comments()
     {
       return $this->belongsToMany(Comment::class);
+    }
+
+    public function files()
+    {
+        return $this->belongsToMany(File::class);
     }
 }

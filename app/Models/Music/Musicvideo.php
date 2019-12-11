@@ -11,10 +11,11 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models\Music
  *
- * @property string    $file_path
  * @property Song      $song
  * @property Like[]    $like
  * @property Comment[] $comments
+ *
+ * @property File[]      $files
  *
  */
 
@@ -35,5 +36,9 @@ class Musicvideo extends Model
     public function comments()
     {
       return $this->belongsToMany(Comment::class);
+    }
+    public function files()
+    {
+        return $this->belongsToMany(File::class);
     }
 }

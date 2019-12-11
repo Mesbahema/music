@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\panel\Music;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\panel\Music\Song\StoreSongRequest;
 use App\Http\Resources\panel\Music\Song\SongIndexResource;
+use App\Models\Music\File;
 use App\Models\Music\Song;
 use Illuminate\Http\Request;
 
@@ -28,13 +30,15 @@ class SongController extends Controller
      *
      * @return array
      */
-    public function store(Request $request)
+    public function store(StoreSongRequest $request)
     {
+        $path = $request->file('music')->store('public/songs');
         $song = new Song();
+        $file = File::created($path);
         $translations = $request->name;
 
         $song->setTranslations('name', $translations);
-        $song->fill($request->all());
+        $song->fill($request->except('file'));
         $song->album()->associate($request->album_id);
         $song->save();
         return [

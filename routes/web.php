@@ -41,3 +41,7 @@ Route::group(['namespace' => 'panel'], function() {
     });
 });
 
+Route::group(['namespace' => 'Frontend'], function (){
+    Route::get('song/{id}', 'SongController@show');
+});
+

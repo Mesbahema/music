@@ -15,7 +15,6 @@ class CreateMusicvideosTable extends Migration
     {
         Schema::create('musicvideos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('file_path', 1000);
 
             $table->bigInteger('song_id')
                   ->unsigned();

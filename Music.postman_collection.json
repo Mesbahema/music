@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "a988f186-2859-4f55-b84a-0a4fa2c3e97a",
+		"name": "Music",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "panel",
+			"item": [
+				{
+					"name": "Artist",
+					"item": [],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Song",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/Music/song",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"Music",
+										"song"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "fa",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name[fa]",
+											"value": "آهنگ یک",
+											"type": "text"
+										},
+										{
+											"key": "name[en]",
+											"value": "first song",
+											"type": "text"
+										},
+										{
+											"key": "lyrics",
+											"value": "نانای نای",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "4:11",
+											"type": "text"
+										},
+										{
+											"key": "file_path",
+											"value": "/home",
+											"type": "text"
+										},
+										{
+											"key": "album_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/Music/song",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"Music",
+										"song"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/Music/song/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"Music",
+										"song",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Frontend",
+			"item": [
+				{
+					"name": "Song",
+					"item": [
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "81523fc3-5613-44aa-afdd-d824926f99b0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "93d73046-5a57-4c78-a7e8-95846e66f47d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1c118811-77fe-46c7-a52f-e287e34ae3a5",
+			"key": "domain",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

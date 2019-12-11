@@ -17,7 +17,6 @@ class CreateSongsTable extends Migration
             $table->bigIncrements('id');
             $table->json('name');
             $table->string('duration');
-            $table->string('file_path', 1000);
             $table->text('lyrics')->nullable();
 
             $table->bigInteger('album_id')

@@ -4,7 +4,10 @@ namespace App\Repositories\Music;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AbstractSongRepository extends Model
+abstract class AbstractSongRepository extends Model
 {
-    //
+    protected function getSongCacheKey($id)
+    {
+        return "song_{$id}";
+    }
 }

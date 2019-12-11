@@ -4,7 +4,7 @@ namespace App\Repositories\Music;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SongRepositoryInterface extends Model
+interface SongRepositoryInterface
 {
-    //
+    public function getSong(int $id);
 }
